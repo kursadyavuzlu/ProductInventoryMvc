@@ -1,0 +1,25 @@
+﻿@using ProductInventoryMvc.Models.Entity
+@model List<Tbl_Customers>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Customer ID</th>
+        <th>Name</th>
+        <th>Surname</th>
+    </tr>
+    <tbody>
+        @foreach(var cstm in Model)
+        {
+        <tr>
+            <td>@cstm.CustomerID</td>
+            <td>@cstm.CustomerName</td>
+            <td>@cstm.CustomerSurname</td>
+        </tr>
+        }
+    </tbody>
+</table>
+

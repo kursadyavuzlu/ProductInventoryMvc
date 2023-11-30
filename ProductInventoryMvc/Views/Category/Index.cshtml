@@ -1,8 +1,23 @@
-﻿
+﻿@using ProductInventoryMvc.Models.Entity
+@model List<Tbl_Categories>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-<h2>Index</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Category ID</th>
+        <th>Name</th>
+    </tr>
+    <tbody>
+        @foreach(var ctg in Model)
+        {
+            <tr>
+                <td>@ctg.CategoryID</td>
+                <td>@ctg.CategoryName</td>
+            </tr>
+        }
+    </tbody>
+</table>
 

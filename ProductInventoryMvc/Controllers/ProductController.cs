@@ -7,14 +7,14 @@ using ProductInventoryMvc.Models.Entity;
 
 namespace ProductInventoryMvc.Controllers
 {
-    public class CategoryController : Controller
+    public class ProductController : Controller
     {
-        // GET: Category
+        // GET: Product
         Dbo_ProductInventoryEntities db = new Dbo_ProductInventoryEntities();
         public ActionResult Index()
         {
-            var ctg = db.Tbl_Categories.ToList();
-            return View(ctg);
+            var prd = db.Tbl_Products.ToList();
+            return View(prd);
         }
     }
 }
