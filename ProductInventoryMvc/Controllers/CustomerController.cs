@@ -16,5 +16,19 @@ namespace ProductInventoryMvc.Controllers
             var cstm = db.Tbl_Customers.ToList();
             return View(cstm);
         }
+
+        [HttpGet]
+        public ActionResult Add()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Add(Tbl_Customers p)
+        {
+            db.Tbl_Customers.Add(p);
+            db.SaveChanges();
+            return View();
+        }
     }
 }

@@ -1,0 +1,37 @@
+﻿@model ProductInventoryMvc.Models.Entity.Tbl_Products
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div>
+        <label>Product name</label>
+        <input type="text" class="form-control" name="ProductName" />
+    </div>
+
+    <div style="margin-top:15px">
+        <label>Trademark</label>
+        <input type="text" class="form-control" name="ProductTrademark" />
+    </div>
+
+    <div style="margin-top:15px">
+        <label>Choose category</label>
+        @Html.DropDownListFor(m=>m.Tbl_Categories.CategoryID,(List<SelectListItem>)ViewBag.vl,new { @class = "form-control" })
+    </div>
+
+    <div style="margin-top:15px">
+        <label>Price</label>
+        <input type="text" class="form-control" name="ProductPrice" />
+    </div>
+
+    <div style="margin-top:15px">
+        <label>Stock</label>
+        <input type="text" class="form-control" name="ProductStock" />
+    </div>
+
+    <div style="margin-top:20px">
+        <button class="btn btn-info">Add product</button>
+    </div>
+</form>
+

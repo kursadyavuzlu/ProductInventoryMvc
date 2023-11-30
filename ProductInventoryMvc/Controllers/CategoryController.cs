@@ -16,5 +16,19 @@ namespace ProductInventoryMvc.Controllers
             var ctg = db.Tbl_Categories.ToList();
             return View(ctg);
         }
+
+        [HttpGet]
+        public ActionResult Add()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Add(Tbl_Categories p)
+        {
+            db.Tbl_Categories.Add(p);
+            db.SaveChanges();
+            return View();
+        }
     }
 }
