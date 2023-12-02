@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ProductInventoryMvc.Models.Entity;
+using PagedList;
+using PagedList.Mvc;
 
 namespace ProductInventoryMvc.Controllers
 {
@@ -11,9 +13,10 @@ namespace ProductInventoryMvc.Controllers
     {
         // GET: Category
         Dbo_ProductInventoryEntities db = new Dbo_ProductInventoryEntities();
-        public ActionResult Index()
+        public ActionResult Index(int page=1)
         {
-            var ctg = db.Tbl_Categories.ToList();
+            //var ctg = db.Tbl_Categories.ToList();
+            var ctg = db.Tbl_Categories.ToList().ToPagedList(page, 10);
             return View(ctg);
         }
 

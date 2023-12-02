@@ -1,5 +1,7 @@
 ﻿@using ProductInventoryMvc.Models.Entity
-@model List<Tbl_Categories>
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Tbl_Categories>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -13,17 +15,19 @@
         <th>Delete</th>
     </tr>
     <tbody>
-        @foreach(var ctg in Model)
+        @foreach (var ctg in Model)
         {
-        <tr>
-            <td>@ctg.CategoryID</td>
-            <td>@ctg.CategoryName</td>
-            <td><a href="/Category/GetCategory/@ctg.CategoryID" class="btn btn-warning">Update</a></td>
-            <td><a href="/Category/Delete/@ctg.CategoryID" class="btn btn-danger">Delete</a></td>
-        </tr>
+            <tr>
+                <td>@ctg.CategoryID</td>
+                <td>@ctg.CategoryName</td>
+                <td><a href="/Category/GetCategory/@ctg.CategoryID" class="btn btn-warning">Update</a></td>
+                <td><a href="/Category/Delete/@ctg.CategoryID" class="btn btn-danger">Delete</a></td>
+            </tr>
         }
     </tbody>
 </table>
+
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
 
 <a href="/Category/Add/" class="btn btn-primary">Add category</a>
 
