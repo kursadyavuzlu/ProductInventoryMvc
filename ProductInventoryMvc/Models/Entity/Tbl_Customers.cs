@@ -11,7 +11,8 @@ namespace ProductInventoryMvc.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Tbl_Customers
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,7 +22,13 @@ namespace ProductInventoryMvc.Models.Entity
         }
     
         public int CustomerID { get; set; }
+
+        [Required(ErrorMessage = "Please write Customer name")]
+        [StringLength(50, ErrorMessage ="Max character can be 50")]
         public string CustomerName { get; set; }
+
+        [Required(ErrorMessage = "Please write Customer surname")]
+        [StringLength(50, ErrorMessage = "Max character can be 50")]
         public string CustomerSurname { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

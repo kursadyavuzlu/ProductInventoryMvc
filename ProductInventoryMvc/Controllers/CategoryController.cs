@@ -26,6 +26,10 @@ namespace ProductInventoryMvc.Controllers
         [HttpPost]
         public ActionResult Add(Tbl_Categories p)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("Add");
+            }
             db.Tbl_Categories.Add(p);
             db.SaveChanges();
             return View();

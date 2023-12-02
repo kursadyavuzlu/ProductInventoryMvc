@@ -1,4 +1,4 @@
-﻿
+﻿@model ProductInventoryMvc.Models.Entity.Tbl_Customers
 @{
     ViewBag.Title = "Add";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -7,12 +7,14 @@
 <form class="form-group" method="post">
     <div>
         <label>Customer name</label>
-        <input type="text" class="form-control" name="CustomerName" />
+        @Html.TextBoxFor(m => m.CustomerName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.CustomerName, "", new { @style = "color:red" })
     </div>
 
     <div style="margin-top:15px">
         <label>Customer surname</label>
-        <input type="text" class="form-control" name="CustomerSurname" />
+        @Html.TextBoxFor(m => m.CustomerSurname, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.CustomerSurname, "", new { @style = "color:red" })
     </div>
 
     <div style="margin-top:20px">
