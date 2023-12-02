@@ -38,5 +38,19 @@ namespace ProductInventoryMvc.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult GetCategory(int id)
+        {
+            var ctg = db.Tbl_Categories.Find(id);
+            return View("GetCategory", ctg);
+        }
+
+        public ActionResult Update(Tbl_Categories p)
+        {
+            var ctg = db.Tbl_Categories.Find(p.CategoryID);
+            ctg.CategoryName = p.CategoryName;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

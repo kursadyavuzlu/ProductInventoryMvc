@@ -38,5 +38,20 @@ namespace ProductInventoryMvc.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult GetCustomer(int id)
+        {
+            var cstm = db.Tbl_Customers.Find(id);
+            return View("GetCustomer", cstm);
+        }
+
+        public ActionResult Update(Tbl_Customers p)
+        {
+            var cstm = db.Tbl_Customers.Find(p.CustomerID);
+            cstm.CustomerName = p.CustomerName;
+            cstm.CustomerSurname = p.CustomerSurname;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
