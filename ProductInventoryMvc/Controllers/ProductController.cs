@@ -39,5 +39,13 @@ namespace ProductInventoryMvc.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult Delete(int id)
+        {
+            var ctg = db.Tbl_Products.Find(id);
+            db.Tbl_Products.Remove(ctg);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
