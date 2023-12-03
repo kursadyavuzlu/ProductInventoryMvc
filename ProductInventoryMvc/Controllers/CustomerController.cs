@@ -11,10 +11,16 @@ namespace ProductInventoryMvc.Controllers
     {
         // GET: Customer
         Dbo_ProductInventoryEntities db = new Dbo_ProductInventoryEntities();
-        public ActionResult Index()
+        public ActionResult Index(string p)
         {
-            var cstm = db.Tbl_Customers.ToList();
-            return View(cstm);
+            var values = from d in db.Tbl_Customers select d;
+            if (!string.IsNullOrEmpty(p))
+            {
+                values = values.Where(m => m.CustomerName.Contains(p));
+            }
+            return View(values.ToList());
+            //var cstm = db.Tbl_Customers.ToList();
+            //return View(cstm);
         }
 
         [HttpGet]

@@ -5,6 +5,15 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
+@using (Html.BeginForm("Index", "Customer", FormMethod.Get))
+{
+    <p>
+        <b>Search Customer:</b> @Html.TextBox("p")
+        <input type="submit" value="Search" />
+    </p>
+}
+
+
 <table class="table table-bordered">
     <tr>
         <th>Customer ID</th>
@@ -14,15 +23,16 @@
         <th>Delete</th>
     </tr>
     <tbody>
-        @foreach(var cstm in Model)
+        @foreach (var cstm in Model)
         {
-        <tr>
-            <td>@cstm.CustomerID</td>
-            <td>@cstm.CustomerName</td>
-            <td>@cstm.CustomerSurname</td>
-            <td><a href="/Customer/GetCustomer/@cstm.CustomerID" class="btn btn-warning">Update</a></td>
-            <td><a href="/Customer/Delete/@cstm.CustomerID" class="btn btn-danger">Delete</a></td>
-        </tr>
+            <tr>
+                <td>@cstm.CustomerID</td>
+                <td>@cstm.CustomerName</td>
+                <td>@cstm.CustomerSurname</td>
+                <td><a href="/Customer/GetCustomer/@cstm.CustomerID" class="btn btn-warning">Update</a></td>
+                @*<td><a href="/Customer/Delete/@cstm.CustomerID" class="btn btn-danger">Delete</a></td>*@
+                <td>@Html.ActionLink("Delete", "Delete", new { id = cstm.CustomerID }, new { @class = "btn btn-danger", onclick = "return confirm('Are you sure delete data?')" })</td>
+            </tr>
         }
     </tbody>
 </table>
