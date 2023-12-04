@@ -1,4 +1,4 @@
-ProductInventoryMvc - Website
+# ProductInventoryMvc - Website
 
 This project was prepared using ASP.NET MVC. It is designed as a simple product stock inventory tracking website project. The topics I learnt at the end of this project can be listed as follows:
 
