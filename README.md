@@ -2,7 +2,7 @@
 
 This project was prepared using ASP.NET MVC. It is designed as a simple product stock inventory tracking website project. The topics I learnt at the end of this project can be listed as follows:
 
-- Web Development Step by Step with Mvc
+- Web Development with Mvc
 - OOP Programming Structure
 - Developing a Dynamic Mvc Project
 - To be able to create their own Mvc Projects
