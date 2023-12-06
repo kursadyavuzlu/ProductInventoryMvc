@@ -5,7 +5,6 @@ This project was prepared using ASP.NET MVC. It is designed as a simple product 
 - Web Development with Mvc
 - OOP Programming Structure
 - Developing a Dynamic Mvc Project
-- To be able to create their own Mvc Projects
 
 The technologies I used and learnt:
 
